@@ -19,4 +19,24 @@ public class Car {
     private String transmission;
     private Double cylinders;
     private String urlimage;
+
+    public Car(String make,
+               String model,
+               String fuelType,
+               String classe,
+               Integer year,
+               String gearbox,
+               String transmission,
+               Double cylinders,
+               String urlimage) {
+        this.make = make;
+        this.model = model;
+        this.fuelType = fuelType;
+        this.classe = classe;
+        this.year = year;
+        this.gearbox = gearbox;
+        this.transmission = transmission;
+        this.cylinders = cylinders;
+        this.urlimage = urlimage;
+    }
 }
