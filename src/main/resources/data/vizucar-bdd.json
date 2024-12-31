@@ -1,0 +1,92 @@
+[
+{
+        "make": "Dodge",
+        "model": "B150/B250 Wagon 2WD",
+        "year": 1985,
+        "class": "Vans",
+        "fueltype": "Regular Gasoline",
+        "gearbox": "Automatic 3-spd",
+        "transmission": "Rear-Wheel Drive",
+        "cylinders": 8.0,
+        "image_url": "https://www.classicnumber.com/images/stories/expautos/images/big/114024_1720000095_8b1763eb.jpg",
+        "image_size": "1253x704",
+        "car_color": null
+    },
+    {
+        "make": "Buick",
+        "model": "Century",
+        "year": 1993,
+        "class": "Midsize Cars",
+        "fueltype": "Regular Gasoline",
+        "gearbox": "Automatic 3-spd",
+        "transmission": "Front-Wheel Drive",
+        "cylinders": 6.0,
+        "image_url": "http://static.cargurus.com/images/site/2014/04/28/01/36/1993_buick_century_special-pic-4818365510207829930.jpeg",
+        "image_size": "1280x960",
+        "car_color": "dimgrey"
+    },
+    {
+        "make": "Mazda",
+        "model": "626",
+        "year": 1993,
+        "class": "Midsize Cars",
+        "fueltype": "Regular Gasoline",
+        "gearbox": "Manual 5-spd",
+        "transmission": "Front-Wheel Drive",
+        "cylinders": 4.0,
+        "image_url": "http://static.cargurus.com/images/site/2008/05/16/00/40/1993_mazda_626_4_dr_es_v6_sedan-pic-37438.jpeg",
+        "image_size": "1600x1200",
+        "car_color": "cadetblue"
+    },
+    {
+        "make": "Oldsmobile",
+        "model": "Cutlass Ciera",
+        "year": 1993,
+        "class": "Midsize Cars",
+        "fueltype": "Regular Gasoline",
+        "gearbox": "Automatic 3-spd",
+        "transmission": "Front-Wheel Drive",
+        "cylinders": 4.0,
+        "image_url": "http://barnfinds.com/wp-content/uploads/2016/06/1993-Oldsmobile-Cutlass-Ciera-S.jpg",
+        "image_size": "1600x1002",
+        "car_color": "indianred"
+    },
+    {
+        "make": "Oldsmobile",
+        "model": "Cutlass Ciera",
+        "year": 1993,
+        "class": "Midsize Cars",
+        "fueltype": "Regular Gasoline",
+        "gearbox": "Automatic 3-spd",
+        "transmission": "Front-Wheel Drive",
+        "cylinders": 6.0,
+        "image_url": "http://barnfinds.com/wp-content/uploads/2016/06/1993-Oldsmobile-Cutlass-Ciera-S.jpg",
+        "image_size": "1600x1002",
+        "car_color": "indianred"
+    },
+    {
+        "make": "Dodge",
+        "model": "Intrepid",
+        "year": 1993,
+        "class": "Large Cars",
+        "fueltype": "Regular Gasoline",
+        "gearbox": "Automatic 4-spd",
+        "transmission": "Front-Wheel Drive",
+        "cylinders": 6.0,
+        "image_url": "http://static.cargurus.com/images/site/2008/06/11/02/58/1993_dodge_intrepid-pic-52141.jpeg",
+        "image_size": "1600x1200",
+        "car_color": "darkslategrey"
+    },
+    {
+        "make": "Oldsmobile",
+        "model": "Eighty-Eight",
+        "year": 1993,
+        "class": "Large Cars",
+        "fueltype": "Regular Gasoline",
+        "gearbox": "Automatic 4-spd",
+        "transmission": "Front-Wheel Drive",
+        "cylinders": 6.0,
+        "image_url": "https://momentcar.com/images/oldsmobile-eightyeight-royale-1993-1.jpg",
+        "image_size": "2336x1196"
+    }
+]

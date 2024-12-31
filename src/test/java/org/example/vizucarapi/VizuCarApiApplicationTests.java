@@ -1,10 +1,10 @@
-package vizucar_api.api;
+package org.example.vizucarapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class VizucarApiApplicationTests {
+class VizuCarApiApplicationTests {
 
 	@Test
 	void contextLoads() {
