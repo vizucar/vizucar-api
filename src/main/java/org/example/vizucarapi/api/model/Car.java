@@ -1,24 +1,61 @@
 package org.example.vizucarapi.api.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Document(collection = "cars")
 public class Car {
 
-    private int id;
+    @Id
+    private String id;
+
+    @Field("make")
     private String make;
+
+    @Field("model")
     private String model;
-    private int year;
+
+    @Field("year")
+    private Integer year;
+
+    @Field("class")
+    @JsonProperty("class")
     private String carClass;
+
+    @Field("fueltype")
+    @JsonProperty("fueltype")
     private String fuelType;
+
+    @Field("gearbox")
     private String gearbox;
+
+    @Field("transmission")
     private String transmission;
-    private double cylinders;
+
+    @Field("cylinders")
+    private Double cylinders;
+
+    @Field("image_url")
+    @JsonProperty("imageUrl")
     private String imageUrl;
+
+    @Field("image_size")
+    @JsonProperty("imageSize")
     private String imageSize;
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    @Field("car_color")
+    private String color;
+
+    public Car() {
+        this.cylinders = 0.0; // Default values
+        this.imageUrl = "";
+        this.imageSize = "unknown";
+    }
+
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
     public String getMake() { return make; }
     public void setMake(String make) { this.make = make; }
@@ -26,8 +63,8 @@ public class Car {
     public String getModel() { return model; }
     public void setModel(String model) { this.model = model; }
 
-    public int getYear() { return year; }
-    public void setYear(int year) { this.year = year; }
+    public Integer getYear() { return year; }
+    public void setYear(Integer year) { this.year = year; }
 
     public String getCarClass() { return carClass; }
     public void setCarClass(String carClass) { this.carClass = carClass; }
@@ -41,12 +78,15 @@ public class Car {
     public String getTransmission() { return transmission; }
     public void setTransmission(String transmission) { this.transmission = transmission; }
 
-    public double getCylinders() { return cylinders; }
-    public void setCylinders(double cylinders) { this.cylinders = cylinders; }
+    public Double getCylinders() { return cylinders; }
+    public void setCylinders(Double cylinders) { this.cylinders = cylinders; }
 
     public String getImageUrl() { return imageUrl; }
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 
     public String getImageSize() { return imageSize; }
     public void setImageSize(String imageSize) { this.imageSize = imageSize; }
+
+    public String getColor() { return color; }
+    public void setColor(String color) { this.color = color; }
 }

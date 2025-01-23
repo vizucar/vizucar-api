@@ -1,50 +1,72 @@
 package org.example.vizucarapi.service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.vizucarapi.api.model.Car;
+import org.example.vizucarapi.repository.CarRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 @Service
 public class CarService {
 
-    private List<Car> cars;
+    @Autowired
+    private CarRepository carRepository;
 
-    public CarService() {
-        loadCars();
+    public List<Car> searchCarsByKeyword(String keyword) {
+        return carRepository.searchByKeyword(keyword);
     }
 
-    private void loadCars() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        try (InputStream inputStream = getClass().getResourceAsStream("/data/vizucar-bdd.json")) {
-            if (inputStream == null) {
-                throw new RuntimeException("File not found: /data/vizucar-bdd.json");
-            }
-            List<Car> loadedCars = objectMapper.readValue(inputStream, new TypeReference<List<Car>>() {});
-
-            // Generate IDs for each car if missing
-            for (int i = 0; i < loadedCars.size(); i++) {
-                loadedCars.get(i).setId(i + 1); // Generate a unique ID starting from 1
-            }
-
-            cars = loadedCars;
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to load car data", e);
-        }
-    }
 
     public List<Car> getAllCars() {
-        return cars;
+        return carRepository.findAll();
     }
 
-    public Car getCarById(int id) {
-        return cars.stream()
-                .filter(car -> car.getId() == id)
-                .findFirst()
-                .orElse(null);
+    public Car getCarById(String id) {
+        return carRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Car not found with ID: " + id));
+    }
+
+    public List<Car> getCarsByMake(String make) {
+        return carRepository.findByMake(make);
+    }
+
+    public List<Car> getCarsByModel(String model) {
+        return carRepository.findByModel(model);
+    }
+
+    public List<Car> getCarsByYear(Integer year) {
+        return carRepository.findByYear(year);
+    }
+
+    public List<Car> getCarsByFuelType(String fuelType) {
+        return carRepository.findByFuelType(fuelType);
+    }
+
+    public List<Car> getCarsByGearbox(String gearbox) {
+        return carRepository.findByGearbox(gearbox);
+    }
+
+    public List<Car> getCarsByTransmission(String transmission) {
+        return carRepository.findByTransmission(transmission);
+    }
+
+    public List<Car> getCarsByCylinders(Double cylinders) {
+        if (cylinders == null) {
+            throw new IllegalArgumentException("Cylinders value cannot be null");
+        }
+        return carRepository.findByCylinders(cylinders);
+    }
+
+    public List<Car> getCarsByColor(String color) {
+        return carRepository.findByColor(color);
+    }
+
+    public Car saveCar(Car car) {
+        return carRepository.save(car);
+    }
+
+    public void deleteCarById(String id) {
+        carRepository.deleteById(id);
     }
 }
