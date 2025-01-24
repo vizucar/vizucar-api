@@ -2,6 +2,8 @@ package org.example.vizucarapi.api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -12,12 +14,15 @@ public class Car {
     private String id;
 
     @Field("make")
+    @TextIndexed // Indexed for text-based searches
     private String make;
 
     @Field("model")
+    @TextIndexed // Indexed for text-based searches
     private String model;
 
     @Field("year")
+    @Indexed // Standard index for fast filtering
     private Integer year;
 
     @Field("class")
@@ -26,15 +31,19 @@ public class Car {
 
     @Field("fueltype")
     @JsonProperty("fueltype")
+    @Indexed // Standard index for fast filtering
     private String fuelType;
 
     @Field("gearbox")
+    @Indexed // Standard index for fast filtering
     private String gearbox;
 
     @Field("transmission")
+    @Indexed // Standard index for fast filtering
     private String transmission;
 
     @Field("cylinders")
+    @Indexed // Standard index for fast filtering
     private Double cylinders;
 
     @Field("image_url")
@@ -46,6 +55,7 @@ public class Car {
     private String imageSize;
 
     @Field("car_color")
+    @Indexed // Standard index for fast filtering
     private String color;
 
     public Car() {
