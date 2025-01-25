@@ -169,8 +169,4 @@ public class CarService {
         }
         return filteredCars;
     }
-
-    public List<Car> searchCarsByKeywords(String keywords) {
-        return carRepository.searchByKeywords(keywords);
-    }
 }
