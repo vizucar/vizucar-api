@@ -14,10 +14,9 @@ public class CarController {
     @Autowired
     private CarService carService;
 
-
     @GetMapping("/search")
     public List<Car> searchCars(@RequestParam String keyword) {
-        return carService.searchCarsByKeyword(keyword);
+        return carService.searchCarsByKeywords(keyword);
     }
 
     @GetMapping
@@ -56,6 +55,65 @@ public class CarController {
         return carService.getCarById(id);
     }
 
+    @GetMapping("/maxYear")
+    public Car getCarWithMaxYear() {
+        return carService.findCarWithMaxYear(carService.getAllCars());
+    }
+
+    @GetMapping("/minYear")
+    public Car getCarWithMinYear() {
+        return carService.findCarWithMinYear(carService.getAllCars());
+    }
+
+    @GetMapping("/filter")
+    public List<Car> filterCars(
+            @RequestParam(required = false) String make,
+            @RequestParam(required = false) String model,
+            @RequestParam(required = false) Integer year,
+            @RequestParam(required = false) String fuelType,
+            @RequestParam(required = false) String gearbox,
+            @RequestParam(required = false) String transmission,
+            @RequestParam(required = false) String cylinders,
+            @RequestParam(required = false) String color,
+            @RequestParam(required = false) String filter
+    ) {
+        List<Car> cars = carService.getAllCars();
+
+        if (make != null) {
+            cars = carService.searchByMake(cars, make);
+        }
+        if (model != null) {
+            cars = carService.searchByModel(cars, model);
+        }
+        if (year != null) {
+            cars = carService.searchByYear(cars, year);
+        }
+        if (fuelType != null) {
+            cars = carService.searchByFuelType(cars, fuelType);
+        }
+        if (gearbox != null) {
+            cars = carService.searchByGearbox(cars, gearbox);
+        }
+        if (transmission != null) {
+            cars = carService.searchByTransmission(cars, transmission);
+        }
+        if (cylinders != null) {
+            cars = carService.searchByCylinders(cars, Double.valueOf(cylinders));
+        }
+        if (color != null) {
+            cars = carService.searchByColor(cars, color);
+        }
+
+        if ("maxYear".equalsIgnoreCase(filter)) {
+            return List.of(carService.findCarWithMaxYear(cars));
+        }
+        if ("minYear".equalsIgnoreCase(filter)) {
+            return List.of(carService.findCarWithMinYear(cars));
+        }
+
+        return cars;
+    }
+
     @PostMapping
     public Car createCar(@RequestBody Car car) {
         return carService.saveCar(car);
@@ -65,4 +123,5 @@ public class CarController {
     public void deleteCar(@PathVariable String id) {
         carService.deleteCarById(id);
     }
+
 }
