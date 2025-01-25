@@ -18,5 +18,4 @@ public interface CarRepository extends MongoRepository<Car, String>, CustomCarRe
     List<Car> findByCylinders(Double cylinders);
     List<Car> findByColor(String color);
 
-
 }
