@@ -16,7 +16,7 @@ public class CarController {
 
     @GetMapping("/search")
     public List<Car> searchCars(@RequestParam String keyword) {
-        return carService.searchCarsByKeywords(keyword);
+        return carService.searchCarsByKeyword(keyword);
     }
 
     @GetMapping
